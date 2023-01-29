@@ -6,21 +6,33 @@
 //
 
 import Foundation
-
+import RxSwift
 import RealmSwift
-class TaskListViewModel : ObservableObject {
-  @Published  var taskList : [TaskViewModel]
+import RxCocoa
+class TaskListViewModel  {
     
-    init(){
-        self.taskList = [TaskViewModel]()
-    }
+
+    var taskList : BehaviorRelay<[TaskViewModel]>  = .init(value: [])
     
-    func addTask(taskTitle:String){
+  static let taskListModel = TaskListViewModel()
+    
+     func addTask(taskTitle:String){
         RealmManager.realManager.addTask(taskTitle: taskTitle)
+      let _  = getTask()
         
     }
     
-    func numberOfRowsInSection()->Int {
+    
+    
+    func getTask() -> Observable<[TaskViewModel]>{
+         RealmManager.realManager.getTasks()
+        let list = RealmManager.realManager.tasks.map(TaskViewModel.init)
+        self.taskList.accept(list)
+        
+        return self.taskList.map{$0.map{TaskViewModel(task: $0.task)}}
+     }
+    
+    /*   func numberOfRowsInSection()->Int {
         return self.taskList.count
     }
     
@@ -35,13 +47,24 @@ class TaskListViewModel : ObservableObject {
     
     func deleteTask(id:ObjectId){
         RealmManager.realManager.deleteTask(id: id)
-    }
+    }*/
     
-    func getTask(){
+    /*func getTaskTest(){
         RealmManager.realManager.getTasks()
-        self.taskList = RealmManager.realManager.tasks.map(TaskViewModel.init)
+        self.taskListTest = RealmManager.realManager.tasks.map(TaskViewModel.init)
+      
         print(self.taskList)
-    }
+        print(self.taskListTest)
+    }*/
+    
+    /*func getTaskTest1() {
+        RealmManager.realManager.getTasks()
+        let list = RealmManager.realManager.tasks.map(TaskViewModel.init)
+        self.taskList.accept(list)
+        print(self.taskList)
+    }*/
+    
+   
 }
 
 struct TaskViewModel {

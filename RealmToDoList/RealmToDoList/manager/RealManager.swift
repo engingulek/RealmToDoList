@@ -46,8 +46,8 @@ class RealmManager : ObservableObject {
                 try localRealm.write{
                     let newTask = Task(value: ["title":taskTitle, "completed" : false])
                     localRealm.add(newTask)
-                    getTasks()
                     
+
                 }
             }catch{
                 print("Error adding task to Realm: \(error)")
