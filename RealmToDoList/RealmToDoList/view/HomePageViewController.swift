@@ -27,81 +27,57 @@ class HomePageViewController: UIViewController {
             .debug("newTaskValid",trimOutput: true)
             .share()
             .throttle(.milliseconds(100), scheduler: MainScheduler.instance)
-
+        
         
         newTaskValid
             .bind(to: addTaskButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
         configureTableView()
-        //taskViewModel.getTaskTest()
-      //  taskViewModel.getTaskTest1()
-       
+        
+        
         taskTableViewController.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "taskCell")
-    
+        
+        
+        //MARK: -Data read to tableVewi
         TaskListViewModel.taskListModel.getTask()
             .bind(to: taskTableViewController.rx
-              .items(cellIdentifier: "taskCell", cellType: TaskTableViewCell.self)) { row, element, cell in
-                  print("Task \(element.taskText)")
-            }
-            .disposed(by: disposeBag)
-        
-        
-       
-        
-        
-        
-        /*taskViewModel.getTask()
-            .bind(to: taskTableViewController.rx
                 .items(cellIdentifier: "taskCell", cellType: TaskTableViewCell.self)) { row, element, cell in
-                    
-                    print("Element \(element.taskText)")
-              }
-              .disposed(by: disposeBag)*/
+                    cell.confifure(task: element)
+                }
+                .disposed(by: disposeBag)
         
         
-        
-      
-    
-        //taskViewModel.getTask()
-       
-        
-      /* tasks = {
-            .just(taskViewModel.taskList)
-        }()*/
-        
-       /* tasks
-          .bind(to: taskTableViewController
+        //MARK: TableView Selecetd
+        taskTableViewController
             .rx
-            .items(cellIdentifier: "taskCell", cellType: TaskTableViewCell.self)) { row, element, cell in // 3
-                cell.confifure(task: element)
-            
-          }
-          .disposed(by: disposeBag)*/
-          
+            .modelSelected(TaskViewModel.self)
+            .subscribe { task in
+                TaskListViewModel.taskListModel.changeCompleted(id: task.id, completed: !task.completed)
+            }.disposed(by: disposeBag)
         
         
-     
-            
+        //MARK: TableView Delete
+        
+        taskTableViewController
+            .rx
+            .modelDeleted(TaskViewModel.self)
+            .subscribe { task in
+                TaskListViewModel.taskListModel.deleteTask(id: task.id)
+            }.disposed(by: disposeBag)
+        
+        
     }
-    
-   
-
     @IBAction func addTaskAction(_ sender: Any) {
         TaskListViewModel.taskListModel.addTask(taskTitle: newTaskTxtField.text!)
-        
-        
     }
     
     private func configureTableView() {
         taskTableViewController.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
         taskTableViewController.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
-        taskTableViewController.rowHeight = 104
+        taskTableViewController.rowHeight = 45
     }
 }
 
 
-extension HomePageViewController {
-    
-}
 
