@@ -29,7 +29,6 @@ class RealmManager : ObservableObject {
     }
     
     func getTasks(){
-        print("Get Task Test")
         if let localRealm = localRealm {
             let allTasks = localRealm.objects(Task.self).sorted(byKeyPath: "completed")
             tasks = []
@@ -46,8 +45,6 @@ class RealmManager : ObservableObject {
                 try localRealm.write{
                     let newTask = Task(value: ["title":taskTitle, "completed" : false])
                     localRealm.add(newTask)
-                    
-
                 }
             }catch{
                 print("Error adding task to Realm: \(error)")

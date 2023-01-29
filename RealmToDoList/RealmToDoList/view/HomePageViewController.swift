@@ -66,10 +66,18 @@ class HomePageViewController: UIViewController {
                 TaskListViewModel.taskListModel.deleteTask(id: task.id)
             }.disposed(by: disposeBag)
         
+        TaskListViewModel.taskListModel
+            .getTaskTaskCount()
+            .subscribe { count in
+                self.navigationItem.prompt = "\(count.element!) Items"
+                self.newTaskTxtField.text = ""
+            }.disposed(by: disposeBag)
+
         
     }
     @IBAction func addTaskAction(_ sender: Any) {
         TaskListViewModel.taskListModel.addTask(taskTitle: newTaskTxtField.text!)
+        
     }
     
     private func configureTableView() {

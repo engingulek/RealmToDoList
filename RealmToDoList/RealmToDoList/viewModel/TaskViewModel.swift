@@ -12,6 +12,7 @@ import RxCocoa
 class TaskListViewModel  {
     
 var taskList : BehaviorRelay<[TaskViewModel]>  = .init(value: [])
+    var count : BehaviorRelay<Int> = .init(value: 0)
     
   static let taskListModel = TaskListViewModel()
     
@@ -27,6 +28,11 @@ var taskList : BehaviorRelay<[TaskViewModel]>  = .init(value: [])
         
         return self.taskList.map{$0.map{TaskViewModel(task: $0.task)}}
      }
+    
+    func getTaskTaskCount() -> Observable<Int>{
+        
+        return taskList.map { $0.count}
+    }
     
     func changeCompleted(id:ObjectId,completed:Bool) {
         RealmManager.realManager.updateTask(id: id, completed: completed)
@@ -51,5 +57,8 @@ struct TaskViewModel {
     
     var completed : Bool {
         return task.completed
+    }
+    var value : Int {
+        return task.value
     }
 }
