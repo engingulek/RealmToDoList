@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7DBCE9FF2986809C0032693E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCE9FE2986809C0032693E /* AppDelegate.swift */; };
 		7DBCEA012986809C0032693E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCEA002986809C0032693E /* SceneDelegate.swift */; };
-		7DBCEA032986809C0032693E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCEA022986809C0032693E /* ViewController.swift */; };
+		7DBCEA032986809C0032693E /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCEA022986809C0032693E /* HomePageViewController.swift */; };
 		7DBCEA062986809C0032693E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DBCEA042986809C0032693E /* Main.storyboard */; };
 		7DBCEA082986809D0032693E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DBCEA072986809D0032693E /* Assets.xcassets */; };
 		7DBCEA0B2986809D0032693E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DBCEA092986809D0032693E /* LaunchScreen.storyboard */; };
@@ -17,17 +17,21 @@
 		7DBCEA162986811D0032693E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7DBCEA152986811D0032693E /* RealmSwift */; };
 		7DBCEA192986813D0032693E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7DBCEA182986813D0032693E /* RxCocoa */; };
 		7DBCEA1B2986813D0032693E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7DBCEA1A2986813D0032693E /* RxSwift */; };
+		7DBCEA20298682A60032693E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCEA1E298682A60032693E /* TaskTableViewCell.swift */; };
+		7DBCEA21298682A60032693E /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBCEA1F298682A60032693E /* TaskTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7DBCE9FB2986809C0032693E /* RealmToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBCE9FE2986809C0032693E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DBCEA002986809C0032693E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7DBCEA022986809C0032693E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7DBCEA022986809C0032693E /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		7DBCEA052986809C0032693E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DBCEA072986809D0032693E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DBCEA0A2986809D0032693E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DBCEA0C2986809D0032693E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DBCEA1E298682A60032693E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		7DBCEA1F298682A60032693E /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,15 +68,33 @@
 		7DBCE9FD2986809C0032693E /* RealmToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				7DBCEA1C298682870032693E /* view */,
 				7DBCE9FE2986809C0032693E /* AppDelegate.swift */,
 				7DBCEA002986809C0032693E /* SceneDelegate.swift */,
-				7DBCEA022986809C0032693E /* ViewController.swift */,
 				7DBCEA042986809C0032693E /* Main.storyboard */,
 				7DBCEA072986809D0032693E /* Assets.xcassets */,
 				7DBCEA092986809D0032693E /* LaunchScreen.storyboard */,
 				7DBCEA0C2986809D0032693E /* Info.plist */,
 			);
 			path = RealmToDoList;
+			sourceTree = "<group>";
+		};
+		7DBCEA1C298682870032693E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7DBCEA1D298682960032693E /* cell */,
+				7DBCEA022986809C0032693E /* HomePageViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7DBCEA1D298682960032693E /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7DBCEA1E298682A60032693E /* TaskTableViewCell.swift */,
+				7DBCEA1F298682A60032693E /* TaskTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DBCEA21298682A60032693E /* TaskTableViewCell.xib in Resources */,
 				7DBCEA0B2986809D0032693E /* LaunchScreen.storyboard in Resources */,
 				7DBCEA082986809D0032693E /* Assets.xcassets in Resources */,
 				7DBCEA062986809C0032693E /* Main.storyboard in Resources */,
@@ -156,7 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DBCEA032986809C0032693E /* ViewController.swift in Sources */,
+				7DBCEA20298682A60032693E /* TaskTableViewCell.swift in Sources */,
+				7DBCEA032986809C0032693E /* HomePageViewController.swift in Sources */,
 				7DBCE9FF2986809C0032693E /* AppDelegate.swift in Sources */,
 				7DBCEA012986809C0032693E /* SceneDelegate.swift in Sources */,
 			);
