@@ -21,6 +21,7 @@
 		7DBCEA21298682A60032693E /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBCEA1F298682A60032693E /* TaskTableViewCell.xib */; };
 		7DBCEA262986881D0032693E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCEA252986881D0032693E /* Task.swift */; };
 		7DBCEA282986891E0032693E /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCEA272986891E0032693E /* TaskViewModel.swift */; };
+		7DBCEA2A29868C800032693E /* RealManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBCEA2929868C800032693E /* RealManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7DBCEA1F298682A60032693E /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		7DBCEA252986881D0032693E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7DBCEA272986891E0032693E /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		7DBCEA2929868C800032693E /* RealManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		7DBCEA22298687FA0032693E /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				7DBCEA2929868C800032693E /* RealManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				7DBCEA20298682A60032693E /* TaskTableViewCell.swift in Sources */,
 				7DBCEA282986891E0032693E /* TaskViewModel.swift in Sources */,
 				7DBCEA032986809C0032693E /* HomePageViewController.swift in Sources */,
+				7DBCEA2A29868C800032693E /* RealManager.swift in Sources */,
 				7DBCEA262986881D0032693E /* Task.swift in Sources */,
 				7DBCE9FF2986809C0032693E /* AppDelegate.swift in Sources */,
 				7DBCEA012986809C0032693E /* SceneDelegate.swift in Sources */,

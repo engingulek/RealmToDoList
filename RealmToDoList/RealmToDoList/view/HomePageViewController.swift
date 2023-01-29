@@ -13,13 +13,17 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var taskTableViewController: UITableView!
     
     @IBOutlet weak var addTaskButton: UIButton!
+    var taskViewModel = TaskListViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         taskTableViewController.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "taskCell")
+        taskViewModel.getTask()
     }
 
 
     @IBAction func addTaskAction(_ sender: Any) {
+        taskViewModel.addTask(taskTitle: newTaskTxtField.text!)
+        taskViewModel.getTask()
     }
 }
 
