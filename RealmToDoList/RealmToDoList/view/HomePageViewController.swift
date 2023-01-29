@@ -15,8 +15,6 @@ class HomePageViewController: UIViewController {
     private let disposeBag = DisposeBag()
     @IBOutlet weak var addTaskButton: UIButton!
     
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let newTaskValid = newTaskTxtField
